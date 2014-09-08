@@ -12,15 +12,11 @@ def go(n):
         for j in range(n + 1):
             if i - 1 >= 0 and j - 1 >= 0:
                 dp[i][j] = dp[i-1][j] + dp[i][j-1]
-            elif i - 1 >= 0:
-                dp[i][j] *= dp[i-1][j] 
-            elif j - 1 >= 0:
-                dp[i][j] *= dp[i][j - 1]
-    print dp
+    return dp[n][n]
 
 
 def main():
-    print go(20)
+    print go(2)
 
 
 if __name__ == "__main__":

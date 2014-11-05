@@ -30,14 +30,17 @@ def sol(states):
             if ''.join(
                 [str(int(v[j]) | int(states[i][j])) for j in xrange(7)]
             ) == v:
+                ok = True
                 for j in xrange(7):
                     if (
                         v[j] == '1' and
                         states[i][j] == '0' and
                         working[j] == '1'
                     ):
+                        ok = False
                         break
-                res[i].append(k)
+                if ok:
+                    res[i].append(k)
 
     ans = None
     for i in xrange(len(res[0])):
@@ -72,7 +75,7 @@ def main():
         f2.write('Case #%s: %s\n' % (x + 1, sol(states)))
 
     '''
-    print sol(('0000000', '0000000'))
+    print sol(('0000000', '0000000', '0000000', '0000100', '0000000'))
     '''
 
 if __name__ == "__main__":
